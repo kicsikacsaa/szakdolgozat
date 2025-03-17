@@ -8,13 +8,13 @@
 <body>
     <form method="POST" action="{{ route('users.store') }}">
         @csrf
-        <input name="email" placeholder="E-mail cím">
+        <input name="email" placeholder="E-mail address">
         <br>
-        <input name="name" placeholder="Felhasználó neve">
+        <input name="name" placeholder="Username">
         <br>
-        <input name="password" type="password" placeholder="Jelszó">
+        <input name="password" type="password" placeholder="Password">
         <br>
-        <button type="submit">Küldés</button>
+        <button type="submit">Submit</button>
     </form>
 </body>
 </html>

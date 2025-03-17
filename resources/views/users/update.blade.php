@@ -14,7 +14,7 @@
     <br>
     <input type="password" name="password">
     <br>
-    <button type="submit">Módosítás</button>
+    <button type="submit">Update</button>
     </form>
 </body>
 </html>

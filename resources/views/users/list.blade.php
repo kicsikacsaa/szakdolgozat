@@ -20,13 +20,13 @@
                 <td>{{ $user->email }}</td>
                 <td>{{ $user->name }}</td>
                 <td>
-                    <a href="{{ route('users.updateForm', ['user' => $user->id]) }}">Módosítás</a>
+                    <a href="{{ route('users.updateForm', ['user' => $user->id]) }}">Edit</a>
                 </td>
                 <td>
                     <form method="POST" action="{{ route('users.delete', ['user' => $user->id]) }}">
                         @csrf
                         @method('DELETE')
-                        <button type="submit">Törlés</button>
+                        <button type="submit">Delete</button>
                     </form>
                 </td>
             </tr>

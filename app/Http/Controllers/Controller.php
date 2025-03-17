@@ -9,4 +9,11 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
+
+    public function welcome()
+    {
+        return view("welcome", [
+            "valtozo1" => "teszt érték"
+        ]);
+    }
 }
