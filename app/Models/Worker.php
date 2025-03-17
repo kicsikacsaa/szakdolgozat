@@ -9,5 +9,15 @@ class Worker extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'address', 'user_id'];
+    protected $fillable = [
+        'name', 
+        'email', 
+        'phone',
+        'position',
+    ];
+
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class);
+    }
 }

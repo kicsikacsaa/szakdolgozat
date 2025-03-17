@@ -20,6 +20,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'phone',
         'password',
         'role',
     ];
@@ -30,6 +31,16 @@ class User extends Authenticatable
 
     public function isWorker(){
         return $this->role ==='worker';
+    }
+
+    public function admin()
+    {
+        return $this->hasOne(Admin::class);
+    }
+
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class);
     }
 
 
