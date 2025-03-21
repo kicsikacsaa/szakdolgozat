@@ -8,25 +8,15 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    public function createForm()
-    {
-        return view("users.create");
-    }
-
-    public function store(Request $request)
-    {
-        $user = User::create([
-            "email" => $request->get("email"),
-            "name" => $request->get("name"),
-            "password" => Hash::make($request->get("password"))
-        ]);
-        return redirect()->route("users.list");
-    }
-
     public function list()
     {
         $users = User::query()->get();
         return view("users.list", ["users" => $users]);
+    }
+    
+    public function createForm()
+    {
+        return view("users.create");
     }
 
     public function updateForm(User $user)
@@ -34,13 +24,12 @@ class UserController extends Controller
         return view("users.update", ["user" => $user]);
     }
 
-    public function update(User $user, Request $request)
+    public function store(Request $request)
     {
-        $user->update([
-            "email" => $request->get("email"),
-            "name" => $request->get("name"),
-            "password" => $request->get("password") ? $user->password : Hash::make($request->get("password"))
-        ]);
+        $user = User::firstOrNew(["id" => $request->get("id")]);
+        $user->fill($request->except(["id", "_token"]));
+        $user->save();
+
         return redirect()->route("users.list");
     }
 
