@@ -6,15 +6,17 @@
     <title>Document</title>
 </head>
 <body>
-    <form method="POST" action="{{ route('users.create') }}">
+    <form method="POST" action="{{ route('users.store') }}">
         @csrf
         <input name="email" placeholder="E-mail cím">
         <br>
         <input name="name" placeholder="Név">
         <br>
+        <input name="phone" placeholder="Telefonszám">
+        <br>
         <input name="password" type="password" placeholder="Jelszó">
         <br>
-        <button type="submit">Submit</button>
+        <button type="submit">Létrehozás</button>
     </form>
 </body>
 </html>

@@ -6,15 +6,17 @@
     <title>Szerkesztés</title>
 </head>
 <body>
-    <form method="POST" action="{{ route('users.update', ['user' => $user->id]) }}">
+    <form method="POST" action="{{ route('users.store', ['user' => $user->id]) }}">
     @csrf
     <input name="email" value="{{ $user->email }}">
     <br>
     <input name="name" value="{{ $user->name }}">
     <br>
+    <input name="name" value="{{ $user->phone }}">
+    <br>
     <input type="password" name="password">
     <br>
-    <button type="submit">Update</button>
+    <button type="submit">Módosítás</button>
     </form>
 </body>
 </html>

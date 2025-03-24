@@ -12,6 +12,7 @@
             <th>ID</th>
             <th>E-mail cím</th>
             <th>Felhasználónév</th>
+            <th>Telefonszám</th>
             <th colspan="2">Műveletek</th>
         </tr>
         @foreach($users as $user)
@@ -19,14 +20,15 @@
                 <td>{{ $user->id }}</td>
                 <td>{{ $user->email }}</td>
                 <td>{{ $user->name }}</td>
+                <td>{{ $user->phone }}</td>
                 <td>
-                    <a href="{{ route('users.updateForm', ['user' => $user->id]) }}">Edit</a>
+                    <a href="{{ route('users.updateForm', ['user' => $user->id]) }}">Módosítás</a>
                 </td>
                 <td>
                     <form method="POST" action="{{ route('users.delete', ['user' => $user->id]) }}">
                         @csrf
                         @method('DELETE')
-                        <button type="submit">Delete</button>
+                        <button type="submit">Törlés</button>
                     </form>
                 </td>
             </tr>
