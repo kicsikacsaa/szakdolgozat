@@ -15,11 +15,9 @@ return new class extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(User::class,"user_id")->constrained("users");
-            $table->foreignIdFor(Table::class,"table_id")->constrained("tables");
-            $table->date('date');
-            $table->time('time');
-            $table->integer('guests')->default(1);
+            $table->foreignIdFor(User::class, 'user_id')->onDelete('cascade');
+            $table->foreignIdFor(Table::class, 'table_id')->onDelete('cascade');
+            $table->dateTime('date');
             $table->enum('status', ['pending', 'confirmed', 'cancelled'])->default('pending');
             $table->timestamps();
         });

@@ -1,22 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form method="POST" action="{{ route('users.store') }}">
-        @csrf
-        <input name="email" placeholder="E-mail cím">
-        <br>
-        <input name="name" placeholder="Név">
-        <br>
-        <input name="phone" placeholder="Telefonszám">
-        <br>
-        <input name="password" type="password" placeholder="Jelszó">
-        <br>
-        <button type="submit">Létrehozás</button>
-    </form>
-</body>
-</html>
+@extends("layout")
+
+@section("content")
+    <div class="row">
+        <div class="mx-auto col-4">
+            <form method="POST" action="{{ route('users.create') }}">
+                @csrf()
+                <div class="form-group mb-3">
+                    <label>Név</label>
+                    <input name="name" class="form-control">
+                </div>
+                <div class="form-group mb-3">
+                    <label>Email</label>
+                    <input name="email" class="form-control">
+                </div>
+                <div class="form-group mb-3">
+                    <label>Telefonszám</label>
+                    <input name="phone" class="form-control">
+                </div>
+                <div class="form-group mb-3">
+                    <label>Jelszó</label>
+                    <input name="password" class="form-control">
+                </div>
+                <div class="form-group mb-3">
+                    <label>Szerep</label>
+                    <input name="role" class="form-control">
+                </div>
+                <div class="form-group mb-3">
+                    <label>Foglalás</label>
+                    <select name="reservation_id" class="form-select">
+                        @foreach ($reservations as $reservation)
+                        <option value="{{ $reservation->id }}">
+                            {{ $reservation->id }}
+                        </option>
+                        @endforeach
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-success mt-3">
+                    Létrehozás
+                </button>
+            </form>
+        </div>
+    </div>
+@stop
