@@ -3,7 +3,7 @@
 @section("content")
     <div class="row">
         <div class="mx-auto col-4">
-            <form method="POST" action="{{ route('users.create') }}">
+            <form method="POST" action="{{ route('users.store') }}">
                 @csrf()
                 <div class="form-group mb-3">
                     <label>Név</label>
@@ -24,16 +24,6 @@
                 <div class="form-group mb-3">
                     <label>Szerep</label>
                     <input name="role" class="form-control">
-                </div>
-                <div class="form-group mb-3">
-                    <label>Foglalás</label>
-                    <select name="reservation_id" class="form-select">
-                        @foreach ($reservations as $reservation)
-                        <option value="{{ $reservation->id }}">
-                            {{ $reservation->id }}
-                        </option>
-                        @endforeach
-                    </select>
                 </div>
                 <button type="submit" class="btn btn-success mt-3">
                     Létrehozás

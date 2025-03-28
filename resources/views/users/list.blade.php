@@ -3,7 +3,7 @@
 @section("content")
     <div class="row">
         <div class="col-12">
-            <a href="{{ route('users.create') }}" class="btn btn-primary">Létrehozás</a>
+            <a href="{{ route('users.store') }}" class="btn btn-primary">Létrehozás</a>
             <table class="table table-striped">
                 <thead>
                     <tr>
