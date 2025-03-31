@@ -27,7 +27,7 @@
                                 <td>{{ $user->phone }}</td>
                                 <td>{{ $user->password }}</td>
                                 <td>{{ $user->role }}</td>
-                                <td>{{ $user->reservation ? $user->reservation->id : "" }}</td>
+                            
                                 <td class="d-flex flex-col">
                                     <a class="btn btn-warning" href="{{ route('users.updateForm', ['user' => $user->id]) }}">Módosítás</a>
                                     <form method="POST" action="{{ route('users.delete', ['user' => $user->id]) }}">

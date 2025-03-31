@@ -23,7 +23,7 @@
                                 <td>{{ $table->number }}</td>
                                 <td>{{ $table->seats }}</td>
                                 <td>{{ $table->status }}</td>
-                                <td>{{ $table->reservation ? $table->reservation->id : "" }}</td>
+                                
                                 <td class="d-flex flex-col">
                                     <a class="btn btn-warning" href="{{ route('tables.updateForm', ['table' => $table->id]) }}">Módosítás</a>
                                     <form method="POST" action="{{ route('tables.delete', ['table' => $table->id]) }}">
