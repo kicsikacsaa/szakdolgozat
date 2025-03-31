@@ -3,7 +3,7 @@
 @section("content")
     <div class="row">
         <div class="mx-auto col-4">
-            <form method="POST" action="{{ route('users.store', ['user' => $user->id]) }}">
+            <form method="POST" action="{{ route('users.update', ['user' => $user->id]) }}">
                 @csrf()
                 <div class="form-group">
                     <label>Név</label>

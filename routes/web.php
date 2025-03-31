@@ -26,7 +26,9 @@ Route::group(["prefix" => "users", "controller" => UserController::class], funct
     Route::get("/create", "createForm")->name("users.createForm");
     Route::get("/update/{user}", "updateForm")->name("users.updateForm");
 
-    Route::post("/store", "store")->name("users.store");
+    Route::post("/create", "create")->name("users.create");
+    Route::post("/update/{user}", "update")->name("users.update");
+
 
     Route::delete("/delete/{user}", "delete")->name("users.delete");
 });
@@ -37,7 +39,8 @@ Route::group(["prefix" => "reservations", "controller" => ReservationController:
     Route::get("/create", "createForm")->name("reservations.createForm");
     Route::get("/update/{reservation}", "updateForm")->name("reservations.updateForm");
 
-    Route::post("/store", "store")->name("reservations.store");
+    Route::post("/create", "create")->name("reservations.create");
+    Route::post("/update/{reservation}", "update")->name("reservations.update");
 
     Route::delete("/delete/{reservation}", "delete")->name("reservations.delete");
 });
@@ -48,7 +51,9 @@ Route::group(["prefix" => "tables", "controller" => TableController::class], fun
     Route::get("/create", "createForm")->name("tables.createForm");
     Route::get("/update/{table}", "updateForm")->name("tables.updateForm");
 
-    Route::post("/store", "store")->name("tables.store");
+    Route::post("/create", "create")->name("tables.create");
+    Route::post("/update/{table}", "update")->name("tables.update");
+        
 
     Route::delete("/delete/{table}", "delete")->name("tables.delete");
 });
