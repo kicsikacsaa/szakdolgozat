@@ -23,11 +23,16 @@ class ReservationController extends Controller
         return view("reservations.update", ["reservation" => $reservation]);
     }
 
-    public function store(Request $request)
+    public function create(Request $request)
     {
-        $reservation = Reservation::firstOrNew(["id" => $request->get("id")]);
-        $reservation->fill($request->except(["id", "_token"]));
-        $reservation->save();
+        $reservation = Reservation::create($request->except("_token"));
+
+        return redirect()->route("reservations.list");
+    }
+
+    public function update(Reservation $reservation, Request $request)
+    {
+        $reservation->update($request->except("_token"));
 
         return redirect()->route("reservations.list");
     }

@@ -24,11 +24,16 @@ class UserController extends Controller
         return view("users.update", ["user" => $user]);
     }
 
-    public function store(Request $request)
+    public function create(Request $request)
     {
-        $user = User::firstOrNew(["id" => $request->get("id")]);
-        $user->fill($request->except(["id", "_token"]));
-        $user->save();
+        $user = User::create($request->except("_token"));
+
+        return redirect()->route("users.list");
+    }
+
+    public function update(User $user, Request $request)
+    {
+        $user->update($request->except("_token"));
 
         return redirect()->route("users.list");
     }

@@ -23,15 +23,20 @@ class TableController extends Controller
         return view("tables.update", ["table" => $table]);
     }
 
-    public function store(Request $request)
+    public function create(Request $request)
     {
-        $table = Table::firstOrNew(["id" => $request->get("id")]);
-        $table->fill($request->except(["id", "_token"]));
-        $table->save();
+        $table = Table::create($request->except("_token"));
 
         return redirect()->route("tables.list");
     }
 
+    public function update(Table $table, Request $request)
+    {
+        $table->update($request->except("_token"));
+
+        return redirect()->route("tables.list");
+    }
+    
     public function delete(Table $table)
     {
         $table->delete();
